@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+Sample for Digital Prototyping, by Clint Heyer
+
+Drawing from: https://create.arduino.cc/projecthub/gov/imu-to-you-ae53e1
+							https://evothings.com/doc/tutorials/evothings-ble-api-guide.html
+
+-->
+<html><head>
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, user-scalable=no,
+		shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<title>Digital Prototyping</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothie/1.27.0/smoothie.min.js"></script>
+
+	<script>
+		// Redirect console.log to Evothings Workbench.
+		if (window.hyper && window.hyper.log) { console.log = hyper.log }
+			console.log("page load");
+	</script>
+</head>
+<body>
+	<button onclick="client.connect()">Connect</button>
+	<button onclick="client.disconnect()">Disconnect</button>
+	<p><strong>Status:</strong> <span id="status">Ready</span></p>
+
+	<section id="charts">
+		<p>
+			Accelerometer<br />
+			<canvas id="canvasAcc" width="500" height="150"></canvas>
+		</p>
+		<p>
+			Gyroscope<br />
+			<canvas id="canvasGyro" width="500" height="150"></canvas>
+		</p>
+	</section>
+
+	<script src="cordova.js"></script>
+	<script src="libs/evothings/evothings.js"></script>
+	<script src="libs/evothings/ui/ui.js"></script>
+	<script src="libs/evothings/easyble/easyble.js"></script>
+	<script src="client.js"></script>
+	<script src="charter.js"></script>
+</body></html>
